@@ -1,0 +1,90 @@
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+a {
+    color: inherit;
+}
+nav {
+    color: honeydew;
+    box-shadow: 2px 3px 13px 9px rgba(0, 0, 0, 0.09);
+}
+
+#navbarNav > ul {
+    margin-left: 75%;
+}
+
+.intro {
+    height: 40vh;
+
+    position: relative;
+}
+.jumbotron-fluid{
+    background-image: url('../imgs/heroImg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: -200;
+    filter: brightness(70%);
+    box-shadow: 2px 3px 13px 9px rgba(0, 0, 0, 0.09);
+}
+.pitch-wrapper{
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    opacity: .9;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.info-cards {
+    margin-top: 5em;
+}
+
+#proccess{
+    margin-bottom: 3em;
+}
+
+
+.cards{
+
+    
+    padding: .5em;
+    border-radius: 2% 0;
+}
+
+.sign-up {
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+.signup-form {
+    padding: 1em;
+    width: 30em;
+    border-radius: 2% 0;
+    margin: auto;
+}
+footer{
+    background-color: slateblue;
+    color: seashell;
+}
+
+i {
+    font-size: 4em;
+}

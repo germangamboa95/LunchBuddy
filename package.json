@@ -1,0 +1,29 @@
+{
+  "name": "platonicfriendfinder-",
+  "version": "0.0.1",
+  "description": "App that helps you find a lunch buddy. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/germangamboa95/platonicFriendFinder.git"
+  },
+  "author": "German Gamboa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/germangamboa95/platonicFriendFinder/issues"
+  },
+  "homepage": "https://github.com/germangamboa95/platonicFriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mysql": "^2.15.0",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.1.1"
+  }
+}

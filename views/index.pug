@@ -1,0 +1,59 @@
+include ./partials/head.pug
+
+
+body
+  main
+
+    include ./partials/nav.pug
+
+
+    section.intro
+      .jumbotron-fluid
+      div.pitch-wrapper.pt-5.text-center
+        h1 Lunch Buddy
+        p Find the best person to have lunch with!
+
+        a.btn.btn-primary(href = "#sign-up-here") Get Started
+
+    .container
+      section.info-cards
+        h2.text-center#proccess THE PROCESS
+        .row.justify-content-center
+          .col-md-4.text-center.cards
+            i.fas.fa-paper-plane
+            p 
+            | Sign up to take the compatability quiz.
+          .col-md-4.text-center.cards
+            i.fas.fa-thumbs-up
+            p 
+            | See your matches and connect with them.
+          .col-md-4.text-center.cards
+            i.fas.fa-calendar-alt
+            p 
+            | Schedule lunch together!
+      
+            
+      section.sign-up
+       h2.text-center SIGN UP NOW!
+       .signup-form
+          form#sign-up-here
+            .form-group
+              label(for='exampleInputEmail1') Email address
+              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+              small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+            .form-group
+              label(for='exampleInputPassword1') Password
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+            button.btn.btn-primary(type='submit') Submit
+
+
+
+  include ./partials/footer.pug
+  
+  script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+  script(src="./public/js/bootstrap.min.js")
+      
+    
+    
+
+    
