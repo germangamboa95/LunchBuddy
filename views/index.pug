@@ -16,6 +16,7 @@ body
         a.btn.btn-primary(href = "#sign-up-here") Get Started
 
     .container
+      p Welcome back #{user}
       section.info-cards
         h2.text-center#proccess THE PROCESS
         .row.justify-content-center
@@ -35,7 +36,7 @@ body
             
       section.sign-up
        h2.text-center SIGN UP NOW!
-       .signup-form
+       .signup-form.col-md-6
           form#sign-up-here(method="POST", action="/signup")
             .form-group
               label(for='exampleInputEmail1') Email address
@@ -44,8 +45,8 @@ body
             .form-group
               label(for='exampleInputPassword1') Password
               input#exampleInputPassword1.form-control(type='password', placeholder='Password', name="password")
-              label(for='exampleInputPassword1') Password
-              input#exampleInputPassword1.form-control(type='password', placeholder='Password', name="password-check")
+              label(for='exampleInputPassword2') Retype Password
+              input#exampleInputPassword2.form-control(type='password', placeholder='Password', name="password-check")
             button.btn.btn-primary(type='submit') Submit
 
 

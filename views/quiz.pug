@@ -4,48 +4,46 @@ body
   main
     include ./partials/nav.pug
 
-    h2
-      name= user
-
     .container
+      h2.my-3 Welcome, #{user}
       .quiz-wrapper
         form.card.p-5(action="/quiz", method="post")
           fieldset.form-group
-            legend.text-center Are you a fast eater?
+            legend.text-center I like to talk while eating. 
             .d-flex.justify-content-center.row
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
+                  input.form-check-input(type="radio",id="question_one_true", name="question_one", value="true")
                   label.form-check-label(for="question_one_true") TRUE
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
+                  input.form-check-input(type="radio",id="question_one_false", name="question_one", value="flase") 
                   label.form-check-label(for="question_one_false") FALSE
           fieldset.form-group
-            legend.text-center Are you a fast eater?
+            legend.text-center I usually order dessert. 
             .d-flex.justify-content-center.row
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
-                  label.form-check-label(for="question_one_true") TRUE
+                  input.form-check-input(type="radio",id="question_two_true", name="question_two", value="true")
+                  label.form-check-label(for="question_two_true") TRUE
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
-                  label.form-check-label(for="question_one_false") FALSE
+                  input.form-check-input(type="radio",id="question_two_false", name="question_two", value="flase") 
+                  label.form-check-label(for="question_two_false") FALSE
           fieldset.form-group
-            legend.text-center Are you a fast eater?
+            legend.text-center I like prefer casual places. 
             .d-flex.justify-content-center.row
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
-                  label.form-check-label(for="question_one_true") TRUE
+                  input.form-check-input(type="radio",id="question_three_true", name="question_three", value="true")
+                  label.form-check-label(for="question_three_true") TRUE
                 .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
-                  label.form-check-label(for="question_one_false") FALSE
+                  input.form-check-input(type="radio",id="question_three_false", name="question_three", value="flase") 
+                  label.form-check-label(for="question_three_false") FALSE
           fieldset.form-group
-            legend.text-center Are you a fast eater?
+            legend.text-center I do not mind driving far for lunch.
             .d-flex.justify-content-center.row
               .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
-                  label.form-check-label(for="question_one_true") TRUE
+                  input.form-check-input(type="radio",id="question_four_true", name="question_four", value="true")
+                  label.form-check-label(for="question_four_true") TRUE
               .col-lg-1
-                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
-                  label.form-check-label(for="question_one_false") FALSE
+                  input.form-check-input(type="radio",id="question_four_false", name="question_four", value="flase") 
+                  label.form-check-label(for="question_four_false") FALSE
 
           button.btn.btn-primary(type="submit") Submit
 

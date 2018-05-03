@@ -11,8 +11,23 @@ nav.navbar.navbar-expand-lg.navbar-light
           span.sr-only (current)
       li.nav-item
       if user
-        a.nav-link(href='#') Sign Out
+        a.nav-link(href='/logout') Sign Out
       else 
-        a.nav-link(href='#') Login
+        a.nav-link(data-toggle="modal",data-target="#exampleModal") Login
+if(error)
+  h1= error
+#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Modal title
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form(action="/sign_in", method="post")
+          h2.text-center Log In
+          input.form-control.m-1(type="email", placeholder="Enter your email", name="email")
+          input.form-control.m-1(type="password", placeholder="Password", name="password")
+          button.btn.btn-primary(type='submit') Log In
 
     
