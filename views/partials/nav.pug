@@ -14,8 +14,9 @@ nav.navbar.navbar-expand-lg.navbar-light
         a.nav-link(href='/logout') Sign Out
       else 
         a.nav-link(data-toggle="modal",data-target="#exampleModal") Login
-if(error)
-  h1= error
+
+
+        
 #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
   .modal-dialog(role='document')
     .modal-content

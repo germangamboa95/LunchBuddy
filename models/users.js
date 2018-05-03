@@ -22,6 +22,34 @@ class User {
         });
     }
 
+    addUser(email,password) {
+        return new Promise( (resolve, reject) => {
+            connection.getConnection((err, conn) =>{
+                conn.query(`INSERT INTO users(user_email, user_password) VALUES ('${email}', '${password}') `, (err, results)=> {
+            
+                    conn.release();
+                    if(err) throw err; 
+                    resolve(results);
+
+                });
+            });
+        });
+    }
+
+    addQuiz(data){
+        return new Promise( (resolve, reject) => {
+            connection.getConnection((err, conn) =>{
+                conn.query(`INSERT INTO results(user_id, question_one, question_two, question_three, question_four, question_five) VALUES ('${data.id}', ${data.one},${data.two},${data.three},${data.four},${data.five}) `, (err, results)=> {
+            
+                    conn.release();
+                    if(err) throw err; 
+                    resolve(results);
+
+                });
+            });
+        });
+    }
+
 }
 
 module.exports = User;

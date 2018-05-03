@@ -12,20 +12,48 @@ router.get('/', (req, res) => {
 });
 
 router.get('/quiz', (req, res) => {
-    var someAttribute = req.session.someAttribute;
-    console.log(someAttribute);
-    res.render('quiz.pug'); 
+    var sessData = req.session;
+
+    res.render('quiz.pug', {
+        user: (sessData.user)? sessData.user.user_email: null
+    }); 
 });
 
 router.post('/quiz', (req, res) => {
     console.log(req.body)
-    res.send('Ok')
+    var sessDataUser = req.session.user;
+    const dataToSave = {
+        id: sessDataUser.user_id,
+        one: req.body.question_one,
+        two: req.body.question_two,
+        three: req.body.question_three,
+        four: req.body.question_four,
+        five: req.body.question_five
+    }
+
+    new users().addQuiz(dataToSave)
+    .then(data => console.log(data))
+
+    res.send(dataToSave);
 });
 
 router.post('/signup', (req,res) => {
-    res.render('quiz.pug', {
-        user: req.body.email
-    });
+    signUpData = req.body; 
+    passMatch = req.body.password == req.body.password_check;
+    var sessData = req.session;
+    console.log(signUpData, passMatch);
+    if(passMatch) {
+        const addNew = new users().addUser(req.body.email, req.body.password);
+        addNew.then(data => {
+            new users().loginUser(req.body.email, req.body.password)
+            .then(data => {
+                sessData.user = data[0];
+                sessData.loggedIn = true; 
+                res.redirect('/quiz')
+
+            })
+        });
+    }
 });
 
 router.post('/sign_in', (req, res) => {
