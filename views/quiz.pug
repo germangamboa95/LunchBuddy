@@ -7,6 +7,18 @@ body
     h2
       German is cool
 
+    .container
+      .quiz-wrapper
+        form(action="/quiz", method="post")
+          fieldset.form-group
+            legend.form-control Are you a fast eater?
+              br
+              input(type="checkbox", name="questionOne", value="true")
+              label(for="") True
+          button(type="submit")
+
+
+
   include ./partials/footer.pug
   
 

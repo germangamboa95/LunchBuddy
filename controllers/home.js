@@ -13,5 +13,10 @@ router.get('/quiz', (req, res) => {
     }); 
 });
 
+router.post('/quiz', (req, res) => {
+    console.log(req.body)
+    res.send('Ok')
+});
+
 
 module.exports = router; 
