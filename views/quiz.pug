@@ -5,17 +5,49 @@ body
     include ./partials/nav.pug
 
     h2
-      German is cool
+      name= user
 
     .container
       .quiz-wrapper
-        form(action="/quiz", method="post")
+        form.card.p-5(action="/quiz", method="post")
           fieldset.form-group
-            legend.form-control Are you a fast eater?
-              br
-              input(type="checkbox", name="questionOne", value="true")
-              label(for="") True
-          button(type="submit")
+            legend.text-center Are you a fast eater?
+            .d-flex.justify-content-center.row
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
+                  label.form-check-label(for="question_one_true") TRUE
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
+                  label.form-check-label(for="question_one_false") FALSE
+          fieldset.form-group
+            legend.text-center Are you a fast eater?
+            .d-flex.justify-content-center.row
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
+                  label.form-check-label(for="question_one_true") TRUE
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
+                  label.form-check-label(for="question_one_false") FALSE
+          fieldset.form-group
+            legend.text-center Are you a fast eater?
+            .d-flex.justify-content-center.row
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
+                  label.form-check-label(for="question_one_true") TRUE
+                .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
+                  label.form-check-label(for="question_one_false") FALSE
+          fieldset.form-group
+            legend.text-center Are you a fast eater?
+            .d-flex.justify-content-center.row
+              .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_true", name="question_one_true", value="true")
+                  label.form-check-label(for="question_one_true") TRUE
+              .col-lg-1
+                  input.form-check-input(type="radio",id="question_one_false", name="question_one_false", value="flase") 
+                  label.form-check-label(for="question_one_false") FALSE
+
+          button.btn.btn-primary(type="submit") Submit
 
 
 

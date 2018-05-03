@@ -36,14 +36,16 @@ body
       section.sign-up
        h2.text-center SIGN UP NOW!
        .signup-form
-          form#sign-up-here
+          form#sign-up-here(method="POST", action="/signup")
             .form-group
               label(for='exampleInputEmail1') Email address
-              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email', name="email")
               small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
             .form-group
               label(for='exampleInputPassword1') Password
-              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password', name="password")
+              label(for='exampleInputPassword1') Password
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password', name="password-check")
             button.btn.btn-primary(type='submit') Submit
 
 

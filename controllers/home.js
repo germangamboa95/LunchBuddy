@@ -8,9 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/quiz', (req, res) => {
-    res.render('quiz.pug', {
-        user: 'German'
-    }); 
+    res.render('quiz.pug'); 
 });
 
 router.post('/quiz', (req, res) => {
@@ -18,5 +16,10 @@ router.post('/quiz', (req, res) => {
     res.send('Ok')
 });
 
+router.post('/signup', (req,res) => {
+    res.render('quiz.pug', {
+        user: req.body.email
+    });
+});
 
 module.exports = router; 
