@@ -32,9 +32,37 @@ router.post('/quiz', (req, res) => {
     }
 
     new users().addQuiz(dataToSave)
-    .then(data => console.log(data))
+    .then(data => console.log(data)) 
 
-    res.send(dataToSave);
+    res.redirect('/results');
+});
+
+router.get('/results', (req,res) => {
+    var sessData = req.session;
+    let email = sessData.user.user_email
+    console.log(email)
+    const user = new users();
+    user.getMyMatch()
+    .then(data => {
+        const matches = matchCalculator(data,email).map(item => item[0]);
+        user.getUsers()
+        .then(data => {
+           let y = data.filter(item => {
+                for(let x in matches){
+                    if(x == item.user_id) {
+                        return item;
+                    }
+                }
+            })
+            console.log(y);
+            res.render('results.pug',{
+                matches: y,
+                user: (sessData.user)? sessData.user.user_email: null
+            });
+        });
+        
+         
+    })
 });
 
 router.post('/signup', (req,res) => {
@@ -80,5 +108,62 @@ router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
 });
+
+
+
+
+
+
+
+
+const matchCalculator = (data, email) => {
+    const userInfo = {};
+    console.log(email)
+    data.forEach(item => {
+      if (item.user_email == email) {
+        userInfo.questions = {
+          question_one: item.question_one,
+          question_two: item.question_two,
+          question_three: item.question_three,
+          question_four: item.question_four,
+          question_five: item.question_five
+        };
+        return;
+      }
+    });
+  
+    const sums= []; 
+  
+    data.forEach(item => {
+      let currentComp;
+      
+      if (item.user_id != email) {
+  
+        currentComp = {
+          question_one: item.question_one,
+          question_two: item.question_two,
+          question_three: item.question_three,
+          question_four: item.question_four,
+          question_five: item.question_five
+          
+        };
+  
+        let adder = 0; 
+  
+        for(let x in currentComp) {
+          if(currentComp[x] == userInfo.questions[x]) {
+              adder++;
+          }
+        }
+  
+  
+        sums.push([item.user_id,adder]);
+      }
+  
+    });
+
+  
+    return sums.filter(item => item[1]>3)
+  }
 
 module.exports = router; 

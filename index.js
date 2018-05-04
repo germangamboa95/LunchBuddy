@@ -20,6 +20,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
 app.use('/', home );
 
 const _PORT = process.env.PORT || 3000
