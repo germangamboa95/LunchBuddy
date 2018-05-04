@@ -7,6 +7,8 @@ body
     .container
       h2.my-3 Welcome, #{user}
       .quiz-wrapper
+        p
+        | Take the quiz below to find who you can have lunch with. 
         form.card.p-5(action="/quiz", method="post")
           fieldset.form-group
             legend.text-center I like to talk while eating. 
