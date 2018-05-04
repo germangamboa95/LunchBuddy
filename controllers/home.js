@@ -40,7 +40,6 @@ router.post('/quiz', (req, res) => {
 router.get('/results', (req,res) => {
     var sessData = req.session;
     let email = sessData.user.user_email
-    console.log(email)
     const user = new users();
     user.getMyMatch()
     .then(data => {
@@ -48,8 +47,10 @@ router.get('/results', (req,res) => {
         user.getUsers()
         .then(data => {
            let y = data.filter(item => {
-                for(let x in matches){
+                for(let x of matches){
+                    console.log(x);
                     if(x == item.user_id) {
+                        matches.shift();
                         return item;
                     }
                 }
@@ -93,7 +94,7 @@ router.post('/sign_in', (req, res) => {
         if(data.length) {
             sessData.user = data[0];
             sessData.loggedIn = true; 
-            res.redirect('/');
+            res.redirect('/results');
         } else {
             res.render('index.pug', {
                 error: 'Wrong Login information'
@@ -118,7 +119,6 @@ router.get('/logout', (req, res) => {
 
 const matchCalculator = (data, email) => {
     const userInfo = {};
-    console.log(email)
     data.forEach(item => {
       if (item.user_email == email) {
         userInfo.questions = {
@@ -128,16 +128,15 @@ const matchCalculator = (data, email) => {
           question_four: item.question_four,
           question_five: item.question_five
         };
-        return;
       }
     });
-  
+    console.log(userInfo)
     const sums= []; 
   
     data.forEach(item => {
       let currentComp;
       
-      if (item.user_id != email) {
+      if (item.user_email != email) {
   
         currentComp = {
           question_one: item.question_one,
@@ -162,8 +161,7 @@ const matchCalculator = (data, email) => {
   
     });
 
-  
-    return sums.filter(item => item[1]>3)
+    return sums.filter(item => item[1] > 3)
   }
 
 module.exports = router; 
